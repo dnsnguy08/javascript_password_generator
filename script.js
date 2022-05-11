@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const options = ['yes', 'y'];
 const numChars = '0123456789';
 const upLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const specialChars = '!@#$%^&*';
