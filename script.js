@@ -1,77 +1,58 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const password = '';
-// const options = ['yes', 'y'];
+// const password = '';
+const options = ['yes', 'y'];
 const numChars = '0123456789';
+const upLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const specialChars = '!@#$%^&*';
+const lowLetters = upLetters.toLowerCase();
 
 function generatePassword() {
-  // const password = '';
-  const password_string = '';
-  // const numChars = '0123456789';
-  // const numChars = [0,1,2,3,4,5,6,7,8,9];
-  const upLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const specialChars = '!@#$%^&*';
-  const options = ['yes', 'y'];
-  // const pwLength = window.prompt('Please indicate the number of characters for your password. \
-  // Password must have a minimum of 8 characters but no more than 128 characters.');
-  const numChar = window.prompt('Would you like numbers in your password?');
-  // const letterUp = window.prompt('Would you like uppercase letters?');
-  // const specialChar = window.prompt('Would you like special characters?');
-  // return pwLength;
+  var passwordString = '';
 
-  // if (pwLength >= 8 && pwLength <= 128) {
-  //   const passLength = pwLength;
-  // } else {
-  //   window.alert('Please input a number between 8 and 128.');
-  // }
-  if (options.includes(numChar)) {
-    var updatePass = password.concat(numChars);
-    // var password = 'yes';
-    // password.concat(numChars);
-    // const numList = '';
-    // for (let i = 0; i <= numChars.length; i++) {
-    //   const nums = Math.floor(Math.random()*numChars.length);
-    //   // numList.append(numChars.charAt(nums));
-    //   numList += numChars.charAt(nums);
-    // }
+  const pwLength = window.prompt('Please indicate the number of characters for your password. \
+  Password must have a minimum of 8 characters but no more than 128 characters.');
+  const requestNum = window.prompt('Would you like numbers in your password?');
+  const requesUpCase = window.prompt('Would you like uppercase letters?');
+  const requestSpecial = window.prompt('Would you like special characters?');
+
+  if (pwLength >= 8 && pwLength <= 128) {
+    var passLength = pwLength;
+    passwordString += lowLetters;
+  } else {
+    window.alert('Please input a number between 8 and 128.');
+  }
+
+  if (options.includes(requestNum.toLowerCase())) {
+    passwordString += numChars;
+    // var updateNums = password.concat(numChars);
   } else {
     window.alert("Your password will not contain numbers.");
   }
-  return updatePass;
-  
-// //   } else {
-// //     window.alert("Your password will not contain numbers.");
-// //   }
-// // }
-//   if (letterUp in options) {
-//     const upperList = '';
-//     for (let i = 0; i <= upLetters.length; i++) {
-//       const selectUpper = Math.floor(Math.random()*upperLetters.length);
-//       upperList += upperLetters.charAt(selectUpper);
-//     }
-//   }
-// //   } else {
-// //     window.alert("Your password will not contain uppercase letters.");
-// //   }
-// // }
-//   if (specialChar in options) {
-//     const specialList = '';
-//     for (let i = 0; i <= specialChars.length; i++) {
-//       const selectSpecial = Math.floor(Math.random()*specialChars.length);
-//       specialList += specialChars.charAt(selectSpecial);
-//     }
-//   }
-// //   } else {
-// //     window.alert("Your password will not contain special characters.");
-// //   }
-// // }
+  // return passwordString;
 
-//   password_string += numList, upperList, specialList;
-//   for (let i = 0; i <= password_string.length; i++) {
-//     const randomizePass = Math.floor(Math.random()*pwLength);
-//     password += password_string.charAt(randomizePass);
-//   }
+  if (options.includes(requesUpCase.toLowerCase())) {
+    passwordString += upLetters;
+    // var updateLetterUp = password.concat(upLetters);
+  } else {
+    window.alert("Your password will not contain uppercase letters.");
+  }
+  // return passwordString;
+
+  if (options.includes(requestSpecial.toLowerCase())) {
+    passwordString += specialChars;
+    //  var updateSpecial = password.concat(specialChars);
+  } else {
+    window.alert("Your password will not contain special characters.");
+  }
+  // return passwordString;
+
+  var password = '';
+  for (let i = 0; i <= passLength - 1; i++) {
+    var randomizePass = Math.floor(Math.random()*passwordString.length);
+    password += passwordString.charAt(randomizePass);
+  }
 
   return password;
   
