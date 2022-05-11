@@ -26,7 +26,7 @@ function generatePassword() {
   //   window.alert('Please input a number between 8 and 128.');
   // }
   if (options.includes(numChar)) {
-    let upperString = password.concat(numChars);
+    var updatePass = password.concat(numChars);
     // var password = 'yes';
     // password.concat(numChars);
     // const numList = '';
@@ -38,9 +38,9 @@ function generatePassword() {
   } else {
     window.alert("Your password will not contain numbers.");
   }
-  return upperString;
-
-  // //   } else {
+  return updatePass;
+  
+// //   } else {
 // //     window.alert("Your password will not contain numbers.");
 // //   }
 // // }
